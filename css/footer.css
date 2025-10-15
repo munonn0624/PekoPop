@@ -1,0 +1,41 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    border-top: 3px solid black;
+    justify-content: space-between;
+    padding: 3em 10em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.logo-foot p{
+    margin: 0.5em 0;
+}
+.social-media{
+    display: flex;
+    gap: 0.5em;
+    margin: 2.5em 0;
+}
+
+.social-media-card{
+    background-color: black;
+    border-radius: 8px;
+    padding: 0.7em;
+
+}
+.social-media-card i{
+    padding: 12px 0;
+}
+
+.quick-nav a{
+    display: flex;
+    text-decoration: none;
+    color: gray;
+    margin-top: 0.5em;
+    margin-right: 10px;
+}
+.copyright{
+    border-top: 2px solid gray;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3em;
+    padding: 1.3em 10px;
+}

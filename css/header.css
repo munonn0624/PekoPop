@@ -1,0 +1,107 @@
+.nav {
+    border-bottom: 3px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+    padding: 0 3em;
+}
+
+.nav-logo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 3em;
+}
+
+.nav-bar {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar-content {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    gap: 2.5em;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+
+}
+
+.nav-bar-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-bar-content a:hover,
+.nav-bar-content li:hover {
+    color: gray;
+}
+
+.nav-bar-content li:hover {
+    cursor: pointer;
+}
+
+.logo {
+    margin: 0;
+    padding: 0;
+    width: 85px;
+
+}
+
+
+.nav-login-cart {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.2em;
+}
+
+.nav-login-cart i {
+    color: #000000;
+}
+
+.nav-login-cart i:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.categories {
+    margin: 0;
+    padding: 1.5em 5em;
+    display: flex;
+    gap: 1.5em;
+    background-color:#fff8e1;
+    box-shadow: 0px 4px 10px -2px gray;
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 100%;
+    visibility: hidden;
+}
+
+.categories-card {
+    margin: 0;
+    display: flex;
+    gap: 1.5em;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: white;
+    padding: 0.5em 1em;
+    align-items: center;
+    max-width: 250px;
+
+}
+
+.categories-card:hover {
+    cursor: pointer;
+    background-color: rgb(244, 244, 244);
+}

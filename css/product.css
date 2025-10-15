@@ -1,0 +1,122 @@
+header h2 {
+    padding: 1.5em;
+    text-align: center;
+}
+
+.filter {
+    margin-right: 5em;
+
+}
+
+.filter-title {
+    display: flex;
+    justify-content: right;
+    gap: 1em;
+}
+
+b {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 0 10px;
+    box-shadow: 4px 0px 2px -1px gray;
+}
+
+.filter-window {
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;  
+    position: absolute;
+    right: 5em;
+    transition: opacity 0.3s ease;
+    visibility: hidden;
+
+}
+
+.filter-choice {
+    padding: 1.5em;
+    border: 2px solid black;
+    border-radius: 5px;
+        box-shadow: 3px 3px 5px gray;
+}
+
+.filter-choice input {
+    margin-top: 1em;
+}
+
+.filter-choice input[type="submit"] {
+    background-color: #f8da2e;
+    padding: 3px 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+
+}
+
+.filter-choice label:hover{
+    cursor: pointer;
+    color: gray;
+}
+
+.product-listing {
+    padding: 3em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-listing a{
+    color: black;
+    text-decoration: none;
+}
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 240px;
+    height: 400px;
+    padding: 1.2em;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.product-card:hover {
+    cursor: pointer;
+    transform: translateY(-5px) ;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) ;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
+    height: auto;
+}
+
+.product-desc {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-top: 0.5em;
+}
+
+.product-price {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.product-price p,
+.product-price h5 {
+    margin: 0;
+  
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    gap: 1em;
+}

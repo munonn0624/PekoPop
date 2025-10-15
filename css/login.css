@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.login-page{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+}
+
+/* Login box */
+.login-container {
+    background-color: #fff;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* Form styles */
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Login button uses your .checkout-button style */
+.checkout-button {
+    width: 100%;
+    background-color: #f8da2e;
+    border: 2px solid black;
+    box-shadow: 3px 3px 5px gray;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: #f1cd00;
+}
+
+/* Links */
+.login-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-links a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}

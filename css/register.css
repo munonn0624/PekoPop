@@ -1,0 +1,87 @@
+.register-page {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+
+}
+.register-container {
+    padding: 40px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.register-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* Form styling */
+.register-form .form-group {
+    margin-bottom: 20px;
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"],
+.register-form input[type="tel"] {
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Button style (matches checkout button) */
+.checkout-button {
+    width: 100%;
+    background-color: #f8da2e;
+    border: 2px solid black;
+    box-shadow: 3px 3px 5px gray;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: #f1cd00;
+}
+
+/* Links */
+.register-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register-links a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.register-links a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}

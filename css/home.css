@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    padding-top: 2.5em;
+    padding-bottom: 0.5em;
+    font-size: 2.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    /* Full screen height */
+    width: 100%;
+    overflow: hidden;
+    /* Prevents video overflow */
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures video fills div without distortion */
+    z-index: -1;
+    /* Keeps video behind the content */
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    color: black;
+    text-align: center;
+}
+
+.hero-content pre {
+    margin-top: 1em; 
+}
+
+.home-product,
+.artist {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5em;
+}
+
+.home-product-span,
+.review-row {
+    display: flex;
+    margin: 2em 2em;
+    gap: 1em;
+}
+
+.home-product-span a{
+    color: black;
+    text-decoration: none;
+}
+
+.home-product-card {
+    border: 2px solid black;
+    padding: 15px;
+    box-shadow: 3px 3px 5px gray;
+    border-radius: 8px;
+}
+
+.home-product-desc {
+    margin-top: 8px;
+}
+
+.home-product-price {
+    margin-top: 1em;
+}
+
+
+
+
+.home-artist-card img {
+    width: 200px;
+    border-radius: 8px;
+}
+
+.reviewer .avatar img {
+    width: 45px;
+    border-radius: 50%;
+}
+
+.home-product button,
+.hero button {
+    background-color: #f8da2e;
+    padding: 0.8em 2em;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 3px 3px 5px gray;
+    font-weight: bold
+}
+
+.home-product button:hover,
+.product-story-nav button:hover,
+.hero button:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+
+
+
+.product-story-div {
+    background-image: url(/PekoPop/static/images/home-story-labubu.jpg);
+    background-size: cover;
+    height: 75vh;
+    background-position: center;
+    padding: 1em;
+    transition: opacity .8s ease;
+    background-repeat: no-repeat;
+}
+
+.product-story-nav {
+    display: flex;
+    gap: 1.8em;
+    list-style-type: none;
+    border-bottom: 1px solid white;
+    padding-bottom: 0.5em;
+    width: 50vw;
+}
+
+.product-story-nav button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-left: 1em;
+}
+
+.product-story-nav button.active {
+    background-color: rgba(229, 229, 229,0.5);
+    padding: 3px 10px;
+    color: white;
+    border-radius: 35px;
+}
+.story-div {
+    margin-top: 3em;
+    margin-left: 4em;
+    width: 35%;
+    color: white;
+}
+
+.story-div p {
+    margin-top: 1em;
+}
+
+
+.home-artist-card {
+    display: flex;
+    gap: 1.5em;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 3px 3px 5px gray;
+}
+
+.home-artist-desc {
+    margin: 0 1em;
+}
+
+.home-review-card {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 1em;
+    gap: 1em;
+}
+
+.home-review-card blockquote {
+    margin: 1.5em;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-left: 1em;
+}
