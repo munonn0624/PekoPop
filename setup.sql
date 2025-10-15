@@ -40,6 +40,49 @@ CREATE TABLE addresses (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+INSERT INTO addresses (
+    user_id,
+    recipient_name,
+    phone,
+    address_line1,
+    address_line2,
+    city,
+    state,
+    postal_code
+) VALUES (
+    1,
+    'John Doe',
+    '012-3456789',
+    '123 Jalan Example',
+    'Apartment 4A',
+    'Kuala Lumpur',
+    'Wilayah Persekutuan',
+    '50000'
+);
+
+INSERT INTO addresses (
+    user_id,
+    recipient_name,
+    phone,
+    address_line1,
+    address_line2,
+    city,
+    state,
+    postal_code,
+    is_default
+) VALUES (
+    1,
+    'Mary Dania',
+    '012-9999999',
+    '123 Jalan Abc',
+    'Apartment 4K',
+    'Kuala Lumpur',
+    'Wilayah Persekutuan',
+    '50000',
+    TRUE
+);
+
+
 -- Admins Table
 CREATE TABLE admins (
     admin_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -232,9 +275,13 @@ CREATE TABLE pickup_locations (
     state VARCHAR(100) NOT NULL,
     postal_code VARCHAR(20) NOT NULL,
     country VARCHAR(100) DEFAULT 'Malaysia',
-    is_active BOOLEAN DEFAULT TRUE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO pickup_locations(name, address_line1,address_line2,city,state,postal_code, country) 
+VALUES('PekaPop IOI City Mall', 'L3-101', 'Jalan Putrajaya Mewah','Putrajaya','Putrajaya','00000', 'Malaysia');
+INSERT INTO pickup_locations(name, address_line1,address_line2,city,state,postal_code, country) 
+VALUES('PekaPop Sunway Velocity', 'L1-20', 'Jalan Maluri Cheras','Cheras','Kuala Lumpur', '56000', 'Malaysia');
 
 -- Password Resets Table
 CREATE TABLE password_resets (

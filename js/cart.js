@@ -1,7 +1,32 @@
+function uncheckAll() {
+    const selectAll = document.getElementById('select-all');
+    const selectItems = document.querySelectorAll('.select-item');
+
+    if (selectAll) selectAll.checked = false;
+    selectItems.forEach(item => item.checked = false);
+}
+
+// Run on normal load
+window.addEventListener('load', function () {
+    uncheckAll();
+    updateCartSummary();
+});
+
+// Run on back/forward navigation
+window.addEventListener('pageshow', function (event) {
+    // Always uncheck, regardless of event.persisted
+    uncheckAll();
+    updateCartSummary();
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const selectAll = document.getElementById('select-all');
     const selectItems = document.querySelectorAll('.select-item');
     const checkoutButton =document.querySelector('.checkout-button');
+
+    //no check-box selected on load
+    uncheckAll();
 
     function disableCheckoutButton() {
         checkoutButton.disabled = true;
@@ -197,7 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // --- Shipping Calculation ---
-        // --- Shipping Calculation ---
         let shipping = 0;
         const deliveryType = deliverySelect?.value;
 
@@ -221,8 +245,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // --- Enable/Disable checkout button ---
         if (checkoutBtn) {
-            if (hasSelectedItems) enableCheckoutButton();
-            else disableCheckoutButton();
+            if (hasSelectedItems) {
+                enableCheckoutButton();
+
+                checkoutBtn.addEventListener("click", () => {
+                    const selectedItems = [];
+
+                    document.querySelectorAll('.select-item:checked').forEach(checkbox => {
+                        selectedItems.push(checkbox.value); // assuming checkbox value = product_id
+                        console.log(checkbox.value);
+                    });
+
+                    if (selectedItems.length === 0) {
+                        alert("Please select at least one item to checkout.");
+                        return;
+                    }
+
+                    const finalShippingFee = parseFloat(summaryShipping.textContent.slice(3));
+
+                    // Send selected items to PHP via POST (to save in session)
+                    fetch("/PekoPop/backend/checkout_session.php", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ 
+                            selectedItems: selectedItems,
+                            deliveryType: deliveryType,
+                            shippingFee: finalShippingFee,
+                            total: total,
+                        })
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.status === "success") {
+                                // Redirect to payment page
+                                window.location.href = "payment.php";
+                            } else {
+                                alert("Error saving checkout items. Please try again.");
+                            }
+                        })
+                        .catch(err => console.error("Checkout session error:", err));
+                });
+
+            }else disableCheckoutButton();
         }
     }
 
@@ -276,6 +340,7 @@ function checkCartEmpty() {
 
 document.addEventListener('DOMContentLoaded', function () {
     checkCartEmpty(); //check on intial load
+    updateCartSummary();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
