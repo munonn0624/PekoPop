@@ -25,7 +25,17 @@ Pekopop is a blinkbox shopping website built for fun during my semester break. A
 
 ## 📸 Website Preview
 
-_To be added_
+### 🏠 Homepage
+![Homepage](screenshots/homepage.png)
+
+### 🛍️ Product Listing
+![Product Listing](screenshots/products.png)
+
+### 🛒 Shopping Cart
+![Shopping Cart](screenshots/cart.png)
+
+### 💳 Checkout Page
+![Checkout](screenshots/checkout.png)
 
 ---
 
@@ -66,3 +76,7 @@ http://localhost/PekoPop
 ```
 
 ---
+
+<p align="center">
+  <sub>Note: This project is still a work in progress.</sub>
+</p>
