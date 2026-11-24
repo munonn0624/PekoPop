@@ -1,0 +1,459 @@
+       body {
+           background: #f8f9fa;
+           font-family: 'Poppins', sans-serif;
+       }
+
+       .payment-container {
+           max-width: 1000px;
+           margin: 40px auto;
+           background: #fff;
+           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+           border-radius: 12px;
+           padding: 30px;
+       }
+
+       .section-title {
+           font-weight: 600;
+           font-size: 20px;
+           margin-bottom: 10px;
+       }
+
+       .address-block,
+       .pickup-block {
+           display: flex;
+           /* flex for left content + optional badge */
+           background: #fafafa;
+           border: 1px solid #ddd;
+           border-radius: 8px;
+           padding: 12px 15px;
+           margin-bottom: 10px;
+           cursor: pointer;
+           transition: 0.2s;
+       }
+
+       .address-block.add-new-address {
+           display: block;
+       }
+
+       .address-block:hover,
+       .pickup-block:hover {
+           border-color: #999;
+       }
+
+       .address-content,
+       .pickup-content,
+       .payment-methods {
+           display: inline-block;
+           vertical-align: middle;
+           flex: 1;
+           /* take remaining width */
+       }
+
+       .address-details,
+       .pickup-details {
+           font-size: 14px;
+           color: #555;
+           line-height: 1.4;
+       }
+
+.address-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* center horizontally */
+    justify-content: center;
+    /* center vertically (for no badge) */
+    position: relative;
+    /* fixed width ensures perfect centering */
+    
+}
+
+.address-actions.with-badge {
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.address-actions.no-badge {
+    justify-content: center;
+    gap: 15px;
+    
+}
+       .address-block .badge {
+           font-size: 12px;
+           padding: 4px 8px;
+           border-radius: 6px;
+           color: #fff;
+           /* prevent shrinking */
+            text-align: center;
+       }
+
+
+       .address-block:hover,
+       .pickup-block:hover {
+           border-color: #999;
+       }
+
+           .address-actions.no-badge i, .address-actions i
+           ,.overlay-address-actions.with-badge i,
+        .overlay-address-actions.no-badge i {
+               cursor: pointer;
+               color: #6c757d;
+               transition: color 0.2s, transform 0.2s;
+           }
+    
+                   .address-actions.no-badge i:hover, .address-actions i:hover
+                                                          ,
+                                                          .overlay-address-actions.with-badge i:hover,
+                                                          .overlay-address-actions.no-badge i:hover {
+               color: #999;
+               transform: scale(1.1);
+               
+           }
+
+
+
+       .address-block input,
+       .pickup-block input {
+           margin-right: 12px;
+           margin-top: 3px;
+           /* align with top of text */
+       }
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+}
+
+.overlay-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px 30px;
+    width: max-content;
+    max-height: 70vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.overlay-content.small {
+    width: 320px;
+}
+
+.address-list {
+    margin-top: 10px;
+    text-align: left;
+            width: 100%;
+}
+.address-details {
+    max-width: 270px;
+}
+.overlay-address-item {
+    display: flex;
+
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #f8f9fa;
+    width: 100%;
+    /* ⬅ Make them same width */
+    height: auto;
+    gap: 1em;
+}
+.overlay-address-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 80px;
+    /* keep consistent width */
+    min-width: 80px;
+    box-sizing: border-box;
+}
+
+/* With badge (Default label) */
+.overlay-address-actions.with-badge {
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+/* Without badge (Set Default button) */
+.overlay-address-actions.no-badge {
+    justify-content: center;
+    gap: 15px;
+}
+.overlay-address-actions.no-badge .set-default-btn {
+    display: inline-block;
+    width: 100%;
+    /* allow wrapping */
+    text-align: center;
+    font-size: 12.5px;
+    padding: 6px 10px;
+    line-height: 1.3;
+    border-radius: 6px;
+    background-color: #f8da2e;
+    /* restore background */
+    color: #212529;
+    /* readable text */
+    border: 2px solid black;
+    box-sizing: border-box;
+    /* ✅ ensures padding doesn't break layout */
+    cursor: pointer;
+    /* Add subtle default shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.overlay-address-actions.no-badge .set-default-btn:hover {
+    background-color: #e6c823;
+    /* slightly darker yellow on hover */
+    color: #000;
+    transform: scale(1.02);
+    /* subtle hover lift */
+    box-shadow: 0 6px 12px rgba(230, 200, 35, 0.5);
+}
+.form-check-input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 2.5em !important;
+    height: 1.4em;
+    background-color: #dee2e6;
+    border-radius: 1.4em;
+    position: relative;
+    cursor: pointer;
+    border: none !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: background-color 0.25s ease;
+    flex-shrink: 0;
+}
+
+/* Remove ALL Bootstrap default styles */
+.form-check-input[type="checkbox"]:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+    background-image: none !important;
+}
+
+.form-check-input[type="checkbox"]:checked {
+    background-color: #f8da2e;
+    background-image: none !important;
+    border-color: transparent !important;
+}
+
+/* Thumb */
+.form-check-input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 0.2em;
+    left: 0.2em;
+    transition: transform 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Checked (move the thumb) */
+.form-check-input[type="checkbox"]:checked::before {
+    transform: translateX(1.1em);
+}
+
+/* Hover state */
+.form-check-input[type="checkbox"]:not(:disabled):hover {
+    opacity: 0.9;
+}
+
+/* Disabled state */
+.form-check-input[type="checkbox"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Label spacing for form-check-reverse */
+.form-check-reverse .form-check-label {
+    margin-right: 0.5em;
+}
+
+.save-address-btn {
+    background-color: #f8da2e;
+    /* Bright yellow */
+    color: #212529;
+    /* Dark text */
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    /* subtle black shadow */
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.save-address-btn:hover,
+.save-address-btn:focus {
+    background-color: #d4b90a;
+    /* Darker yellow on hover/focus */
+    color: #000;
+    outline: none;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.35);
+    /* stronger shadow on hover */
+}
+       .order-item {
+           display: flex;
+           align-items: center;
+           border-bottom: 1px solid #eee;
+           padding: 10px 0;
+       }
+
+       .order-item img {
+           width: 60px;
+           height: 60px;
+           border-radius: 8px;
+           margin-right: 12px;
+       }
+
+       .payment-methods label {
+           display: flex;
+           align-items: center;
+           background: #fafafa;
+           border: 1px solid #ddd;
+           border-radius: 6px;
+           padding: 10px;
+           cursor: pointer;
+           margin-bottom: 8px;
+       }
+
+       .payment-methods input {
+           margin-right: 10px;
+       }
+
+.payment-option-section {
+    margin-left: 25px;
+    padding: 10px;
+    border-left: 3px solid #f0c300;
+    display: none;
+    margin-bottom: 0.5em;
+}
+
+.payment-option-section:not(.hidden) {
+    display: block;
+}
+
+.card-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.8em;
+    padding: 10px;
+    margin-bottom: 8px;
+}
+
+.card-item img {
+    width: 55px;
+    height: auto;
+}
+
+.delete-card-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-card-btn:hover {
+    background: #d43f3f;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content.small {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+}
+.add-new-card-btn{
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+
+}
+.add-new-card-btn button{
+    background-color: transparent;
+        font-weight: bold;
+            border: none;
+}
+
+
+.bank-list label{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1em;
+
+}
+
+.bank-list img{
+    width: 100px;
+    margin-right: 1em;
+}
+
+.ewallet-list img {
+    width: 50px;
+    margin-right: 1em;
+}
+       .summary-box {
+           background: #f9f9f9;
+           border: 1px solid #ddd;
+           border-radius: 10px;
+           padding: 20px;
+           margin-top: 20px;
+       }
+
+       .pay-now-btn {
+           display: block;
+           width: 100%;
+           background: #6c63ff;
+           color: white;
+           font-weight: 600;
+           padding: 14px;
+           border-radius: 10px;
+           text-align: center;
+           font-size: 16px;
+           border: none;
+           transition: 0.3s;
+       }
+
+       .pay-now-btn:disabled {
+           background: #ccc;
+           cursor: not-allowed;
+       }

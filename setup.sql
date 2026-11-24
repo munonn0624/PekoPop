@@ -82,7 +82,7 @@ INSERT INTO addresses (
     TRUE
 );
 
-
+-- CREATE TABLE payment_method
 -- Admins Table
 CREATE TABLE admins (
     admin_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -245,7 +245,7 @@ CREATE TABLE orders (
     pickup_id INT NULL,
     order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     total_amount DECIMAL(10,2),
-    payment_method ENUM('CreditCard', 'eWallet') NOT NULL,
+    payment_method ENUM('Card', 'eWallet','fpx') NOT NULL,
     status ENUM('Pending', 'Paid', 'Shipped', 'Completed', 'Cancelled') DEFAULT 'Pending',
     delivery_type ENUM('pickup', 'delivery') NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
